@@ -1,0 +1,5887 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "CartoVista.Server.API.v1"
+  },
+  "host": "a_host",
+  "basePath": "a_path",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/v1/User/{UserIdentifier}/generateApiKey": {
+      "post": {
+        "tags": [
+          "ApiKey"
+        ],
+        "operationId": "ApiKey_GenerateApiKey",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "UserIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/createDataColumns": {
+      "post": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_CreateLayerDataColumns",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataColumnCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiInsertReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/createDataColumns": {
+      "post": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_CreateDataTableDataColumns",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataColumnCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiInsertReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/DataColumns": {
+      "get": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_GetLayerDataColumns",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataColumn"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/DataColumns": {
+      "get": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_GetDataTableDataColumns",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataColumn"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/DataColumn/{dataColumnIdentifier}": {
+      "get": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_GetLayerDataColumn",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataColumn"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_DeleteLayerDataColumn",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/DataColumn/{dataColumnIdentifier}": {
+      "get": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_GetDataTableDataColumn",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataColumn"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_DeleteDataTableDataColumn",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/DataColumn/{dataColumnIdentifier}/update": {
+      "post": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_UpdateLayerDataColumn",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataColumnUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataColumn"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/DataColumn/{dataColumnIdentifier}/update": {
+      "post": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_UpdateDataTableDataColumn",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataColumnUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataColumn"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/DataColumn/{dataColumnIdentifier}/setUniqueIdentifier": {
+      "post": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_SetLayerColumnUniqueIdentifier",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "newIdentifier",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataColumn"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/DataColumn/{dataColumnIdentifier}/setUniqueIdentifier": {
+      "post": {
+        "tags": [
+          "DataColumn"
+        ],
+        "operationId": "DataColumn_SetDataTableColumnUniqueIdentifier",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "newIdentifier",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataColumn"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/DataRows": {
+      "post": {
+        "tags": [
+          "DataRow"
+        ],
+        "operationId": "DataRow_GetDataRows",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataRowsGetParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataRow"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DataRow"
+        ],
+        "operationId": "DataRow_DeleteDatarows",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataRowIdentifiers",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/DataRow/{dataRowIdentifier}": {
+      "get": {
+        "tags": [
+          "DataRow"
+        ],
+        "operationId": "DataRow_GetDataRow",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataRowIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataRow"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DataRow"
+        ],
+        "operationId": "DataRow_DeleteDatarow",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataRowIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/createDataRows": {
+      "post": {
+        "tags": [
+          "DataRow"
+        ],
+        "operationId": "DataRow_CreateDataRows",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataRowCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiInsertReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/createUpdateDataRows": {
+      "post": {
+        "tags": [
+          "DataRow"
+        ],
+        "operationId": "DataRow_CreateUpdateDataRows",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataRowCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiCreateUpdateReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/DataRow/{dataRowIdentifier}/update": {
+      "post": {
+        "tags": [
+          "DataRow"
+        ],
+        "operationId": "DataRow_UpdateDataRow",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataRowIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataRowUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataRow"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTables": {
+      "get": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_GetDataTables",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataTable"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}": {
+      "get": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_GetDataTableByIdentifier",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_DeleteDataTable",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/v1/createDataTable": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_CreateDataTable",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataTableCreateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/createFromExcel": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_CreateFromExcel",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/createFromExcel/{sheetName}": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_CreateFromExcel_SheetName",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "sheetName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/createFromCSV": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_CreateFromCSV",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/update": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_UpdateDataTable",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataTableUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/setDataColumnUniqueId": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_SetDataColumnUniqueId",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/updateFromExcel": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_UpdateFromExcel",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/updateFromExcel/{sheetName}": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_UpdateFromExcel_SheetName",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sheetName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/updateFromCSV": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_UpdateFromCSV",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DataTable/{dataTableIdentifier}/setUniqueIdentifier": {
+      "post": {
+        "tags": [
+          "DataTable"
+        ],
+        "operationId": "DataTable_SetUniqueIdentifier",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "dataTableIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "newIdentifier",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataTable"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_GetFeatures",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FeaturesGetParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataRow"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_DeleteFeatures",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifiers",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiDeleteReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/WKT": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_GetFeaturesInWKT",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FeaturesGetParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureWKT"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/LongLat": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_GetFeaturesInLongLat",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FeaturesGetParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureLongLat"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/GeoJSON": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_GetFeaturesInGeoJSON",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FeaturesGetParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureGeoJSON"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Feature/{featureIdentifier}/WKT": {
+      "get": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_GetFeatureInWKT",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FeatureWKT"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Feature/{featureIdentifier}/LongLat": {
+      "get": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_GetFeatureInLongLat",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FeatureLongLat"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Feature/{featureIdentifier}/GeoJSON": {
+      "get": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_GetFeatureInGeoJSON",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FeatureGeoJSON"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Feature/{featureIdentifier}": {
+      "delete": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_DeleteFeature",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiDeleteReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/createFromWKT": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_CreateFeaturesFromWKT",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureWKTCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiInsertReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/createFromGeoJSON": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_CreateFeaturesFromGeoJSON",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureGeoJSONCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiInsertReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/createFromLongLat": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_CreateFeaturesFromLongLat",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureLongLatCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiInsertReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/createUpdateFromWKT": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_CreateUpdateFeaturesFromWKT",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureWKTCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiCreateUpdateReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/createUpdateFromGeoJSON": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_CreateUpdateFeaturesFromGeoJSON",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureGeoJSONCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiInsertReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Features/createUpdateFromLongLat": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_CreateUpdateFeaturesFromLongLat",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeatureLongLatCreateParameter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ApiInsertReport"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Feature/{featureIdentifier}/updateGeometryFromWKT": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_UpdateGeometryFromWKT",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FeatureWKTUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FeatureWKT"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Feature/{featureIdentifier}/updateFromGeoJSON": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_UpdateFromGeoJSON",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FeatureGeoJSONUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FeatureGeoJSON"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Feature/{featureIdentifier}/updateFromLongLat": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_UpdateFromLongLat",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FeatureLongLatUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FeatureLongLat"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/Feature/{featureIdentifier}/updateValues": {
+      "post": {
+        "tags": [
+          "Feature"
+        ],
+        "operationId": "Feature_UpdateValues",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "featureIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataRowUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DataRow"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayer/{gridLayerId}/GridSource/{gridSourceId}/getData": {
+      "get": {
+        "tags": [
+          "GridLayer"
+        ],
+        "operationId": "GridLayer_GetData",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "gridSourceId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "title": "HttpResponseMessage",
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayer/{gridLayerId}/GridSource/{gridSourceId}/render": {
+      "post": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Generates a PNG of the grid source within the extent passed in the parameters and returns it as a byte array.\r\nThe inflection points are defined in `Styles` in the parameters.",
+        "operationId": "GridLayer_Render",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "gridSourceId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GridSourceRenderParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "title": "HttpResponseMessage",
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayer/{gridLayerId}/maps": {
+      "get": {
+        "tags": [
+          "GridLayer"
+        ],
+        "operationId": "GridLayer_GetMapsByGridLayer",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MapDTO"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayer/{gridLayerId}": {
+      "get": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Get a grid layer by identifier.",
+        "operationId": "GridLayer_GetGridLayerById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GridLayer"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Delete an existing grid layer.",
+        "operationId": "GridLayer_DeleteGridLayer",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Update the properties of an existing grid layer.",
+        "operationId": "GridLayer_UpdateGridLayer",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "updateParameters",
+            "in": "body",
+            "description": "The parameters to update.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GridLayerUpdateParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GridLayer"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayers": {
+      "get": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Get the list of all grid layers.",
+        "operationId": "GridLayer_GetGridLayers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GridLayer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayer/{gridLayerId}/GridSources/{gridSourceId}": {
+      "get": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Get a grid source by identifier.",
+        "operationId": "GridLayer_GetGridSource",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "gridSourceId",
+            "in": "path",
+            "description": "The grid source system identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GridSource"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Delete an existing grid source.",
+        "operationId": "GridLayer_DeleteGridSource",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "gridSourceId",
+            "in": "path",
+            "description": "The grid source system identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Update the properties of an existing grid source.",
+        "operationId": "GridLayer_UpdateGridSource",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "gridSourceId",
+            "in": "path",
+            "description": "The grid source system identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "updateParameters",
+            "in": "body",
+            "description": "The parameters to update.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GridSourceUpdateParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GridSource"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayer/{gridLayerId}/GridSources": {
+      "get": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Get all the grid sources associated with the grid layer.",
+        "operationId": "GridLayer_GetGridSourcesForGridLayer",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GridSource"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Add a grid source to an existing grid layer.",
+        "operationId": "GridLayer_AddGridSource",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bandNumber",
+            "in": "formData",
+            "description": "The band number to select. Starts at 1.",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GridSource"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayer": {
+      "post": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Create a grid layer with the specified parameters.",
+        "operationId": "GridLayer_CreateGridLayer",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "createParameters",
+            "in": "body",
+            "description": "The parameters used to create the grid layer.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GridLayerCreateParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GridLayer"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/GridLayer/{gridLayerId}/GridSources/{gridSourceId}/updateGeotiff": {
+      "post": {
+        "tags": [
+          "GridLayer"
+        ],
+        "summary": "Update the geoTIFF of an existing grid source.",
+        "operationId": "GridLayer_UpdateGridSourceGeotiff",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "gridLayerId",
+            "in": "path",
+            "description": "The grid layer system identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "gridSourceId",
+            "in": "path",
+            "description": "The grid source system identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bandNumber",
+            "in": "formData",
+            "description": "The band number to select. Starts at 1.",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GridSource"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layers": {
+      "get": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_GetLayers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Layer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}": {
+      "get": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_GetLayerById",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Layer"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_DeleteLayerById",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/v1/createLayer": {
+      "post": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_CreateLayer",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LayerCreateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Layer"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/createFromZip": {
+      "post": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_CreateLayerFromZip",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Layer"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/update": {
+      "post": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_UpdateLayer",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LayerUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Layer"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/updateFromZip": {
+      "post": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_UpdateLayerFromZip",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "Upload file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Layer"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/setDataColumnUniqueId": {
+      "post": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_SetDataColumnUniqueId",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataColumnIdentifier",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Layer"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerIdentifier}/setUniqueIdentifier": {
+      "post": {
+        "tags": [
+          "Layer"
+        ],
+        "operationId": "Layer_SetUniqueIdentifier",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "newIdentifier",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Layer"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Location/geocode/{address}": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "operationId": "Location_Geocode",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GeocodedLocation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Location/reversegeocode": {
+      "post": {
+        "tags": [
+          "Location"
+        ],
+        "operationId": "Location_ReverseGeocode",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReverseGeocodeParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GeocodedLocation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Location/isochrone": {
+      "post": {
+        "tags": [
+          "Location"
+        ],
+        "operationId": "Location_Isochrone",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/IsochroneParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Isochrone"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Location/route/summary": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "operationId": "Location_GetRouteSummary",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "param.originLatitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "param.originLongitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "param.destinationLatitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "param.destinationLongitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RouteSummary"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/maps": {
+      "get": {
+        "tags": [
+          "Map"
+        ],
+        "summary": "Get all maps the requesting user has access to.",
+        "operationId": "Map_GetMaps",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Map"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Map"
+        ],
+        "summary": "Create a map based on the provided parameters.",
+        "operationId": "Map_CreateMap",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "param",
+            "in": "body",
+            "description": "Parameters used to create the map.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MapCreateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Map"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/maps/{mapId}": {
+      "get": {
+        "tags": [
+          "Map"
+        ],
+        "summary": "Get a map based on the map id or a friendly identifier.",
+        "operationId": "Map_GetMap",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "mapId",
+            "in": "path",
+            "description": "Map id or a friendly identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Map"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Map"
+        ],
+        "summary": "Delete a map by map id or a friendly identifier.",
+        "operationId": "Map_DeleteMap",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "mapId",
+            "in": "path",
+            "description": "Map id or a friendly identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Map"
+        ],
+        "summary": "Update a map properties based on the given parameters.",
+        "operationId": "Map_UpdateMap",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "mapId",
+            "in": "path",
+            "description": "Map id or a friendly identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "description": "Parameters used to update the map.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MapUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Map"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/maps/{mapId}/layers": {
+      "get": {
+        "tags": [
+          "Map"
+        ],
+        "summary": "Get the list of Layers used in a map.",
+        "operationId": "Map_GetLayersByMap",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "mapId",
+            "in": "path",
+            "description": "Map id or a friendly identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Layer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/maps/{mapId}/gridLayers": {
+      "get": {
+        "tags": [
+          "Map"
+        ],
+        "summary": "Get the list of grid layers used in a map.",
+        "operationId": "Map_GetGridLayersByMap",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "mapId",
+            "in": "path",
+            "description": "Map id or a friendly identifier.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GridLayer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetUsers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/User/{UserIdentifier}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetUser",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "UserIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_DeleteUser",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "UserIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/v1/User/create": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_CreateUser",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserCreateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/User/{UserIdentifier}/update": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_UpdateUser",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "UserIdentifier",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserUpdateParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerId}/views": {
+      "get": {
+        "tags": [
+          "View"
+        ],
+        "summary": "Get the list of views associated with a layer.",
+        "operationId": "View_GetViews",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "description": "The layer system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/View"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "View"
+        ],
+        "summary": "Delete all the views associated with the layer.",
+        "operationId": "View_DeleteViews",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "description": "The layer system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerId}/views/{viewId}": {
+      "get": {
+        "tags": [
+          "View"
+        ],
+        "summary": "Get a specific view by id.",
+        "operationId": "View_GetView",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "description": "The layer system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "viewId",
+            "in": "path",
+            "description": "The view system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/View"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "View"
+        ],
+        "summary": "Update the view parameters.",
+        "operationId": "View_UpdateView",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "description": "The layer system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "viewId",
+            "in": "path",
+            "description": "The view system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "description": "The parameters to update.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateViewParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/View"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerId}/views/createByColumn": {
+      "post": {
+        "tags": [
+          "View"
+        ],
+        "summary": "Create views based on a layer column. This will generate one view for each unique value of the selected column.",
+        "operationId": "View_CreateViewsFromColumn",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "description": "The layer system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "columnId",
+            "in": "body",
+            "description": "The column system identifier.",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/View"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerId}/views/createByExpression": {
+      "post": {
+        "tags": [
+          "View"
+        ],
+        "summary": "Create a view based on an expression.",
+        "operationId": "View_CreateViewByExpression",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "description": "The layer system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "param",
+            "in": "body",
+            "description": "The parameters to create the view.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateViewByExpressionParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/View"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Layer/{layerId}/views/{viewId}/permissions": {
+      "patch": {
+        "tags": [
+          "View"
+        ],
+        "summary": "Update the view permissions.\r\nNote: We need to list all the permissions on the view as the missing permissions will be deleted.",
+        "operationId": "View_UpdateViewPermissions",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "layerId",
+            "in": "path",
+            "description": "The layer system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "viewId",
+            "in": "path",
+            "description": "The view system identifier.",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "permissions",
+            "in": "body",
+            "description": "The list of permissions to assign to the view.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ViewReadPermission"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/View"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    
+    "DataColumnCreateParameter": {
+      "title": "DataColumnCreateParameter",
+      "type": "object",
+      "properties": {
+        "Identifier": {
+          "type": "string"
+        },
+        "CartoVistaDataType": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "Units": {
+          "type": "string"
+        },
+        "AggregationType": {
+          "type": "string"
+        },
+        "Mappable": {
+          "type": "boolean"
+        },
+        "Precision": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RoundToPrecision": {
+          "type": "boolean"
+        },
+        "TimeStamp": {
+          "title": "Object",
+          "type": "object"
+        },
+        "TimeStampAccuracy": {
+          "title": "Object",
+          "type": "object"
+        },
+        "NotAvailableValues": {
+          "type": "boolean"
+        },
+        "ValueToConvert": {
+          "format": "double",
+          "type": "number"
+        },
+        "SystemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ApiInsertReport": {
+      "title": "ApiInsertReport",
+      "type": "object",
+      "properties": {
+        "CreateCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "InsertedIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "UpdatedIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ErrorCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ErrorDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorDetail"
+          }
+        }
+      }
+    },
+    "ErrorDetail": {
+      "title": "ErrorDetail",
+      "type": "object",
+      "properties": {
+        "ErrorType": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "type": "integer"
+        },
+        "ErrorCode": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        }
+      }
+    },
+    "DataColumn": {
+      "title": "DataColumn",
+      "type": "object",
+      "properties": {
+        "SystemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UniqueIdentifier": {
+          "type": "string"
+        },
+        "DataTableIdentifier": {
+          "type": "string"
+        },
+        "CartoVistaDataType": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "Units": {
+          "type": "string"
+        },
+        "AggregationType": {
+          "type": "string"
+        },
+        "Mappable": {
+          "type": "boolean"
+        },
+        "Precision": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RoundToPrecision": {
+          "type": "boolean"
+        },
+        "TimeStamp": {
+          "title": "Object",
+          "type": "object"
+        },
+        "TimeStampAccuracy": {
+          "title": "Object",
+          "type": "object"
+        },
+        "NotAvailableValues": {
+          "type": "boolean"
+        },
+        "ValueToConvert": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "DataColumnUpdateParameter": {
+      "title": "DataColumnUpdateParameter",
+      "type": "object",
+      "properties": {
+        "CartoVistaDataType": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "Units": {
+          "type": "string"
+        },
+        "AggregationType": {
+          "type": "string"
+        },
+        "Mappable": {
+          "type": "boolean"
+        },
+        "Precision": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RoundToPrecision": {
+          "type": "boolean"
+        },
+        "TimeStamp": {
+          "title": "Object",
+          "type": "object"
+        },
+        "TimeStampAccuracy": {
+          "title": "Object",
+          "type": "object"
+        },
+        "NotAvailableValues": {
+          "type": "boolean"
+        },
+        "ValueToConvert": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "DataRowsGetParameters": {
+      "title": "DataRowsGetParameters",
+      "type": "object",
+      "properties": {
+        "StartAt": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RowCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "DataRow": {
+      "title": "DataRow",
+      "type": "object",
+      "properties": {
+        "Identifier": {
+          "type": "string"
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        },
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DataColumnsSystemIdentifiers": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "DataRowCreateParameter": {
+      "title": "DataRowCreateParameter",
+      "type": "object",
+      "properties": {
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        }
+      }
+    },
+    "ApiCreateUpdateReport": {
+      "title": "ApiCreateUpdateReport",
+      "type": "object",
+      "properties": {
+        "UpdateCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreateCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "InsertedIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "UpdatedIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ErrorCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ErrorDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorDetail"
+          }
+        }
+      }
+    },
+    "DataRowUpdateParameter": {
+      "title": "DataRowUpdateParameter",
+      "type": "object",
+      "properties": {
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        }
+      }
+    },
+    "DataTable": {
+      "title": "DataTable",
+      "type": "object",
+      "properties": {
+        "UniqueIdentifier": {
+          "type": "string"
+        },
+        "SystemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UniqueIdDataColumn": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "RowCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreationTime": {
+          "type": "string"
+        },
+        "ModifiedTime": {
+          "type": "string"
+        }
+      }
+    },
+    "DataTableCreateParameter": {
+      "title": "DataTableCreateParameter",
+      "type": "object",
+      "properties": {
+        "Identifier": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "SystemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "DataTableUpdateParameter": {
+      "title": "DataTableUpdateParameter",
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "DataColumns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataColumnUpdateParameterExtended"
+          }
+        }
+      }
+    },
+    "DataColumnUpdateParameterExtended": {
+      "title": "DataColumnUpdateParameterExtended",
+      "type": "object",
+      "properties": {
+        "ColumnIdentifier": {
+          "type": "string"
+        },
+        "CartoVistaDataType": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "Units": {
+          "type": "string"
+        },
+        "AggregationType": {
+          "type": "string"
+        },
+        "Mappable": {
+          "type": "boolean"
+        },
+        "Precision": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RoundToPrecision": {
+          "type": "boolean"
+        },
+        "TimeStamp": {
+          "title": "Object",
+          "type": "object"
+        },
+        "TimeStampAccuracy": {
+          "title": "Object",
+          "type": "object"
+        },
+        "NotAvailableValues": {
+          "type": "boolean"
+        },
+        "ValueToConvert": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "FeaturesGetParameters": {
+      "title": "FeaturesGetParameters",
+      "type": "object",
+      "properties": {
+        "StartAt": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RowCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "ApiDeleteReport": {
+      "title": "ApiDeleteReport",
+      "type": "object",
+      "properties": {
+        "DeleteCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DeletedIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ErrorCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ErrorDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorDetail"
+          }
+        }
+      }
+    },
+    "FeatureWKT": {
+      "title": "FeatureWKT",
+      "type": "object",
+      "properties": {
+        "WKT": {
+          "type": "string"
+        },
+        "GeometryType": {
+          "type": "string"
+        },
+        "Identifier": {
+          "type": "string"
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        },
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DataColumnsSystemIdentifiers": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "FeatureLongLat": {
+      "title": "FeatureLongLat",
+      "type": "object",
+      "properties": {
+        "Longitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "Latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "GeometryType": {
+          "type": "string"
+        },
+        "Identifier": {
+          "type": "string"
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        },
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DataColumnsSystemIdentifiers": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "FeatureGeoJSON": {
+      "title": "FeatureGeoJSON",
+      "type": "object",
+      "properties": {
+        "GeoJSON": {
+          "type": "string"
+        },
+        "GeometryType": {
+          "type": "string"
+        },
+        "Identifier": {
+          "type": "string"
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        },
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DataColumnsSystemIdentifiers": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      }
+    },
+    "FeatureWKTCreateParameter": {
+      "title": "FeatureWKTCreateParameter",
+      "type": "object",
+      "properties": {
+        "WKT": {
+          "type": "string"
+        },
+        "FeatureType": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "type": "integer",
+          "readOnly": true
+        },
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        },
+        "Proj4": {
+          "type": "string"
+        }
+      }
+    },
+    "FeatureGeoJSONCreateParameter": {
+      "title": "FeatureGeoJSONCreateParameter",
+      "type": "object",
+      "properties": {
+        "GeoJSON": {
+          "type": "string"
+        },
+        "FeatureType": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "type": "integer",
+          "readOnly": true
+        },
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        },
+        "Proj4": {
+          "type": "string"
+        }
+      }
+    },
+    "FeatureLongLatCreateParameter": {
+      "title": "FeatureLongLatCreateParameter",
+      "type": "object",
+      "properties": {
+        "Longitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "Latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "FeatureType": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "type": "integer",
+          "readOnly": true
+        },
+        "DataColumnsIdentifiers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Values": {
+          "type": "array",
+          "items": {
+            "title": "Object",
+            "type": "object"
+          }
+        },
+        "Proj4": {
+          "type": "string"
+        }
+      }
+    },
+    "FeatureWKTUpdateParameter": {
+      "title": "FeatureWKTUpdateParameter",
+      "type": "object",
+      "properties": {
+        "WKT": {
+          "type": "string"
+        },
+        "FeatureType": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "type": "integer",
+          "readOnly": true
+        },
+        "Proj4": {
+          "type": "string"
+        }
+      }
+    },
+    "FeatureGeoJSONUpdateParameter": {
+      "title": "FeatureGeoJSONUpdateParameter",
+      "type": "object",
+      "properties": {
+        "GeoJSON": {
+          "type": "string"
+        },
+        "FeatureType": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "type": "integer",
+          "readOnly": true
+        },
+        "Proj4": {
+          "type": "string"
+        }
+      }
+    },
+    "FeatureLongLatUpdateParameter": {
+      "title": "FeatureLongLatUpdateParameter",
+      "type": "object",
+      "properties": {
+        "Longitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "Latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "FeatureType": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "type": "integer",
+          "readOnly": true
+        },
+        "Proj4": {
+          "type": "string"
+        }
+      }
+    },
+    "GridSourceRenderParameter": {
+      "title": "GridSourceRenderParameter",
+      "type": "object",
+      "properties": {
+        "extent": {
+          "type": "array",
+          "items": {
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "width": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "height": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isLinearRender": {
+          "type": "boolean"
+        },
+        "styles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GridSourceRenderStyleParameter"
+          }
+        }
+      }
+    },
+    "GridSourceRenderStyleParameter": {
+      "title": "GridSourceRenderStyleParameter",
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "double",
+          "type": "number"
+        },
+        "min": {
+          "format": "double",
+          "type": "number"
+        },
+        "max": {
+          "format": "double",
+          "type": "number"
+        },
+        "color": {
+          "type": "string"
+        }
+      }
+    },
+    "MapDTO": {
+      "title": "MapDTO",
+      "type": "object",
+      "properties": {
+        "ConfigHTML5MapPathLocation": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Identifier": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Status": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            1000
+          ],
+          "type": "integer"
+        },
+        "Type": {
+          "format": "int32",
+          "enum": [
+            1,
+            2
+          ],
+          "type": "integer"
+        },
+        "TypeDescription": {
+          "type": "string"
+        },
+        "spatialMetaDataDTOs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpatialMetadataDTO"
+          }
+        },
+        "PublicAccess": {
+          "type": "boolean"
+        },
+        "CustomViewer": {
+          "type": "boolean"
+        },
+        "OriginalMapPackageTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "IsMapTerritoryReady": {
+          "type": "boolean"
+        },
+        "ThumbnailVersion": {
+          "type": "string"
+        },
+        "FolderId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Path": {
+          "type": "string"
+        },
+        "Editable": {
+          "type": "boolean"
+        },
+        "seoTitle": {
+          "type": "string"
+        },
+        "seoDescription": {
+          "type": "string"
+        },
+        "seoCustomHTML": {
+          "type": "string"
+        },
+        "ScoringEnabled": {
+          "type": "boolean"
+        },
+        "StoragePath": {
+          "type": "string",
+          "readOnly": true
+        },
+        "DynamicThumbnailURL": {
+          "type": "string",
+          "readOnly": true
+        },
+        "ModifiedThumbnail": {
+          "format": "byte",
+          "type": "string"
+        },
+        "MapUrl": {
+          "type": "string",
+          "readOnly": true
+        },
+        "LanguageDescription": {
+          "type": "string"
+        },
+        "CreationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "LastModifiedAuthor": {
+          "type": "string"
+        },
+        "LastModifiedTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Keywords": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeywordDTO"
+          }
+        },
+        "OwnerName": {
+          "type": "string"
+        },
+        "Permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionPairComplexDTO"
+          }
+        },
+        "CurrentUserHasModifyPermission": {
+          "type": "boolean"
+        },
+        "RepresentationUseCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WebApplicationPath": {
+          "type": "string"
+        },
+        "Id": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "SpatialMetadataDTO": {
+      "title": "SpatialMetadataDTO",
+      "type": "object",
+      "properties": {
+        "<DataTableId>k__BackingField": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "<DataTableLinkingColumnId>k__BackingField": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "<IsUniqueColumnSet>k__BackingField": {
+          "type": "boolean"
+        },
+        "<SpatialSourceColumn>k__BackingField": {
+          "type": "string"
+        },
+        "<SpatialTableRef>k__BackingField": {
+          "type": "string"
+        },
+        "<UniqueIDColumn>k__BackingField": {
+          "type": "string"
+        },
+        "<proj4>k__BackingField": {
+          "type": "string"
+        },
+        "<geometryType>k__BackingField": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "type": "integer"
+        },
+        "<MapUseCount>k__BackingField": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "<minX>k__BackingField": {
+          "format": "double",
+          "type": "number"
+        },
+        "<minY>k__BackingField": {
+          "format": "double",
+          "type": "number"
+        },
+        "<maxX>k__BackingField": {
+          "format": "double",
+          "type": "number"
+        },
+        "<maxY>k__BackingField": {
+          "format": "double",
+          "type": "number"
+        },
+        "<srid>k__BackingField": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "<tiled>k__BackingField": {
+          "type": "boolean"
+        },
+        "<vectorQualityType>k__BackingField": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            4,
+            8,
+            16,
+            32
+          ],
+          "type": "integer"
+        },
+        "<cacheEnabled>k__BackingField": {
+          "type": "boolean"
+        },
+        "<ClusterMetadata>k__BackingField": {
+          "$ref": "#/definitions/ClusterMetadataDTO"
+        },
+        "<UserFriendlyProj>k__BackingField": {
+          "type": "string"
+        },
+        "<Permissions>k__BackingField": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionPairComplexDTO"
+          }
+        },
+        "<PublicAccess>k__BackingField": {
+          "type": "boolean"
+        },
+        "<Identifier>k__BackingField": {
+          "type": "string"
+        },
+        "<Path>k__BackingField": {
+          "type": "string"
+        },
+        "<Metadata>k__BackingField": {
+          "type": "string"
+        },
+        "<Description>k__BackingField": {
+          "type": "string"
+        },
+        "<IsUsedByTerritoryManager>k__BackingField": {
+          "type": "boolean"
+        },
+        "<ServerViewCount>k__BackingField": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "<Status>k__BackingField": {
+          "enum": [
+            "READY",
+            "NOT_READY"
+          ],
+          "type": "string"
+        },
+        "<RecordCount>k__BackingField": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "<Id>k__BackingField": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "<Name>k__BackingField": {
+          "type": "string"
+        },
+        "<OwnerName>k__BackingField": {
+          "type": "string"
+        },
+        "<CreationTime>k__BackingField": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "<ModifiedTime>k__BackingField": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "<FolderId>k__BackingField": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "<CurrentUserHasModifyPermission>k__BackingField": {
+          "type": "boolean"
+        }
+      }
+    },
+    "KeywordDTO": {
+      "title": "KeywordDTO",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "Keyword": {
+          "type": "string"
+        }
+      }
+    },
+    "PermissionPairComplexDTO": {
+      "title": "PermissionPairComplexDTO",
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/SecurityIdentityDTO"
+        },
+        "permissionName": {
+          "type": "string"
+        },
+        "secureObjectGuid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "ClusterMetadataDTO": {
+      "title": "ClusterMetadataDTO",
+      "type": "object",
+      "properties": {
+        "ClusterStatus": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "type": "integer"
+        },
+        "FeatureGroupTableRef": {
+          "type": "string"
+        },
+        "FeatureGroupXREFTableRef": {
+          "type": "string"
+        }
+      }
+    },
+    "SecurityIdentityDTO": {
+      "title": "SecurityIdentityDTO",
+      "type": "object",
+      "properties": {
+        "isAnynomous": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isGroup": {
+          "type": "boolean"
+        },
+        "lastModificationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "creationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "tenantId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "provider": {
+          "enum": [
+            "CartoVista",
+            "ActiveDirectory"
+          ],
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "providerStatus": {
+          "enum": [
+            "Available",
+            "Unavailable"
+          ],
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secureObjectPermissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionPairDTO"
+          }
+        }
+      }
+    },
+    "PermissionPairDTO": {
+      "title": "PermissionPairDTO",
+      "type": "object",
+      "properties": {
+        "permissionName": {
+          "type": "string"
+        },
+        "secureObjectId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "GridLayer": {
+      "title": "GridLayer",
+      "type": "object",
+      "properties": {
+        "uniqueIdentifier": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "string"
+        },
+        "proj4": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        },
+        "precision": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "gridSourceCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "creationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "modifiedTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "systemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "GridLayerUpdateParameters": {
+      "title": "GridLayerUpdateParameters",
+      "type": "object",
+      "properties": {
+        "uniqueIdentifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        },
+        "precision": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GridSource": {
+      "title": "GridSource",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "gridLayerId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "uniqueIdentifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "fileMetadata": {
+          "type": "string"
+        },
+        "bandMetadata": {
+          "type": "string"
+        },
+        "band": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "creationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "modifiedTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "noDataEnabled": {
+          "type": "boolean"
+        },
+        "noDataValue": {
+          "type": "string"
+        },
+        "minValue": {
+          "format": "double",
+          "type": "number"
+        },
+        "maxValue": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "GridSourceUpdateParameters": {
+      "title": "GridSourceUpdateParameters",
+      "type": "object",
+      "properties": {
+        "uniqueIdentifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "noDataEnabled": {
+          "type": "boolean"
+        },
+        "noDataValue": {
+          "type": "string"
+        }
+      }
+    },
+    "GridLayerCreateParameters": {
+      "title": "GridLayerCreateParameters",
+      "type": "object",
+      "properties": {
+        "uniqueIdentifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        },
+        "precision": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "proj4": {
+          "type": "string"
+        }
+      }
+    },
+    "Layer": {
+      "title": "Layer",
+      "type": "object",
+      "properties": {
+        "UniqueIdentifier": {
+          "type": "string"
+        },
+        "CreationTime": {
+          "type": "string"
+        },
+        "DataTableUniqueIdentifier": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "GeometryType": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "ModifiedTime": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Proj4": {
+          "type": "string"
+        },
+        "RowCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SystemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "UniqueIdDataColumn": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "LayerCreateParameter": {
+      "title": "LayerCreateParameter",
+      "type": "object",
+      "properties": {
+        "Identifier": {
+          "type": "string"
+        },
+        "Proj4": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "GeometryType": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "VectorTiling": {
+          "type": "boolean"
+        },
+        "SystemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "DataTableSystemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "FeatureIdColumnSystemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        }
+      }
+    },
+    "LayerUpdateParameter": {
+      "title": "LayerUpdateParameter",
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Metadata": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "VectorTiling": {
+          "type": "boolean"
+        },
+        "DataColumns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataColumnUpdateParameterExtended"
+          }
+        }
+      }
+    },
+    "GeocodedLocation": {
+      "title": "GeocodedLocation",
+      "type": "object",
+      "properties": {
+        "Longitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "Latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "Address": {
+          "type": "string"
+        },
+        "BoundingBox": {
+          "$ref": "#/definitions/BoundingBox"
+        }
+      }
+    },
+    "BoundingBox": {
+      "title": "BoundingBox",
+      "type": "object",
+      "properties": {
+        "minx": {
+          "format": "double",
+          "type": "number"
+        },
+        "miny": {
+          "format": "double",
+          "type": "number"
+        },
+        "maxx": {
+          "format": "double",
+          "type": "number"
+        },
+        "maxy": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "ReverseGeocodeParams": {
+      "title": "ReverseGeocodeParams",
+      "type": "object",
+      "properties": {
+        "longitude": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        }
+      }
+    },
+    "IsochroneParams": {
+      "title": "IsochroneParams",
+      "type": "object",
+      "properties": {
+        "longitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "range": {
+          "format": "double",
+          "type": "number"
+        },
+        "rangeType": {
+          "enum": [
+            "time",
+            "distance",
+            "crow"
+          ],
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "car",
+            "truck",
+            "pedestrian",
+            "bicycle",
+            "publicTransport"
+          ],
+          "type": "string"
+        },
+        "departureTime": {
+          "type": "string"
+        }
+      }
+    },
+    "Isochrone": {
+      "title": "Isochrone",
+      "type": "object",
+      "properties": {
+        "Longitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "Latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "Range": {
+          "type": "string"
+        },
+        "RangeType": {
+          "type": "string"
+        },
+        "Mode": {
+          "type": "string"
+        },
+        "DepartureTime": {
+          "type": "string"
+        },
+        "IsolineCoordinates": {
+          "type": "array",
+          "items": {
+            "format": "double",
+            "type": "number"
+          }
+        }
+      }
+    },
+    "RouteParams": {
+      "title": "RouteParams",
+      "type": "object",
+      "properties": {
+        "originLatitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "originLongitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "destinationLatitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "destinationLongitude": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "RouteSummary": {
+      "title": "RouteSummary",
+      "type": "object",
+      "properties": {
+        "OriginLatitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "OriginLongitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "DestinationLatitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "DestinationLongitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "DriveDistanceMeters": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DriveTimeMinutes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Coordinates": {
+          "type": "array",
+          "items": {
+            "format": "double",
+            "type": "number"
+          }
+        }
+      }
+    },
+    "MapCreateParameter": {
+      "title": "MapCreateParameter",
+      "type": "object",
+      "properties": {
+        "systemIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uniqueIdentifier": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "fr",
+            "en",
+            "es",
+            "de",
+            "pt",
+            "it",
+            "tr"
+          ],
+          "type": "string"
+        },
+        "editable": {
+          "type": "boolean"
+        },
+        "seoTitle": {
+          "type": "string"
+        },
+        "seoDescription": {
+          "type": "string"
+        },
+        "seoCustomHTML": {
+          "type": "string"
+        },
+        "scoringEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Map": {
+      "title": "Map",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uniqueIdentifier": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "fr",
+            "en",
+            "es",
+            "de",
+            "pt",
+            "it",
+            "tr"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            1000
+          ],
+          "type": "integer"
+        },
+        "type": {
+          "format": "int32",
+          "enum": [
+            1,
+            2
+          ],
+          "type": "integer"
+        },
+        "isMapTerritoryReady": {
+          "type": "boolean"
+        },
+        "editable": {
+          "type": "boolean"
+        },
+        "seoTitle": {
+          "type": "string"
+        },
+        "seoDescription": {
+          "type": "string"
+        },
+        "seoCustomHTML": {
+          "type": "string"
+        },
+        "scoringEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "MapUpdateParameter": {
+      "title": "MapUpdateParameter",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "uniqueIdentifier": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "fr",
+            "en",
+            "es",
+            "de",
+            "pt",
+            "it",
+            "tr"
+          ],
+          "type": "string"
+        },
+        "editable": {
+          "type": "boolean"
+        },
+        "seoTitle": {
+          "type": "string"
+        },
+        "seoDescription": {
+          "type": "string"
+        },
+        "seoCustomHTML": {
+          "type": "string"
+        },
+        "scoringEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    
+    
+    "Extent": {
+      "title": "Extent",
+      "type": "object",
+      "properties": {
+        "minX": {
+          "format": "double",
+          "type": "number"
+        },
+        "minY": {
+          "format": "double",
+          "type": "number"
+        },
+        "maxX": {
+          "format": "double",
+          "type": "number"
+        },
+        "maxY": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "ExportDataParameter": {
+      "title": "ExportDataParameter",
+      "type": "object",
+      "properties": {
+        "layerIds": {
+          "type": "array",
+          "items": {
+            "format": "uuid",
+            "type": "string",
+            "example": "00000000-0000-0000-0000-000000000000"
+          }
+        },
+        "mapImageBase64": {
+          "type": "string"
+        }
+      }
+    },
+    
+    "User": {
+      "title": "User",
+      "type": "object",
+      "properties": {
+        "SecurityIdentifier": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "SecurityProviderIdentity": {
+          "type": "string"
+        },
+        "EmailAdress": {
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "Roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "LastLoginTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ModificationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "SecurityProvider": {
+          "type": "string"
+        },
+        "ProviderStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "UserCreateParameter": {
+      "title": "UserCreateParameter",
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "EmailAdress": {
+          "type": "string"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "Roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserUpdateParameter": {
+      "title": "UserUpdateParameter",
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "EmailAdress": {
+          "type": "string"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "Notes": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "Roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "View": {
+      "title": "View",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "title": {
+          "type": "string"
+        },
+        "layerId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "recordCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "Column",
+            "Expression"
+          ],
+          "type": "string"
+        },
+        "expression": {
+          "type": "string"
+        },
+        "columnId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "columnName": {
+          "type": "string"
+        },
+        "columnType": {
+          "type": "string"
+        },
+        "creationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "modifiedTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewReadPermission"
+          }
+        },
+        "currentUserHasModifyPermission": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ViewReadPermission": {
+      "title": "ViewReadPermission",
+      "type": "object",
+      "properties": {
+        "viewId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "identityId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "isGroup": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UpdateViewParameter": {
+      "title": "UpdateViewParameter",
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "The new view title.",
+          "type": "string"
+        },
+        "permissions": {
+          "description": "The list of permissions to assign to the view.\r\nNote: We need to list all the permissions on the view as the missing permissions will be deleted.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ViewReadPermission"
+          }
+        }
+      }
+    },
+    "CreateViewByExpressionParameters": {
+      "title": "CreateViewByExpressionParameters",
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "The view title.",
+          "type": "string"
+        },
+        "expression": {
+          "description": "The view expression. Column friendly identifier can be used and must be surrounded by square bracket.\r\nEx: [Name] = 'Test'",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "API Key Authentication",
+      "name": "apiKey",
+      "in": "header"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# IO.Swagger.Model.FeatureWKTCreateParameter
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**WKT** | **string** |  | [optional] 
+**FeatureType** | **int?** |  | [optional] 
+**DataColumnsIdentifiers** | **List&lt;string&gt;** |  | [optional] 
+**Values** | **List&lt;Object&gt;** |  | [optional] 
+**Proj4** | **string** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
